@@ -27,6 +27,7 @@ export const lightTheme: ThemeOptions = {
   typography: {
     fontFamily: ['Arial'].join(','),
   },
+  name: 'light',
   custom: {
     palette: {
       graphColorOne: {
@@ -75,6 +76,7 @@ export const darkTheme: ThemeOptions = {
     },
     mode: 'dark',
   },
+  name: 'dark',
   custom: {
     ...lightTheme.custom,
     palette: {
@@ -86,6 +88,48 @@ export const darkTheme: ThemeOptions = {
       graphColorTwo: {
         light: '#9bb1ff',
         main: '#6482f5',
+        dark: '#2156c1',
+      },
+      history: {
+        summaryBorder: '#515151',
+      },
+    },
+  },
+};
+
+export const specialTheme: ThemeOptions = {
+  ...lightTheme,
+  palette: {
+    primary: {
+      light: '#014D4E',
+      main: '#317773',
+      dark: '#2156c1',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#317773',
+      main: '#317773',
+      dark: '#317773',
+      contrastText: '#fff',
+    },
+    background: {
+      paper: '#FFF',
+      default: '#FFFFFF',
+    },
+    mode: 'light',
+  },
+  name: "special",
+  custom: {
+    ...lightTheme.custom,
+    palette: {
+      graphColorOne: {
+        light: '#31777373',
+        main: '#317773',
+        dark: '#2156c1',
+      },
+      graphColorTwo: {
+        light: '#31777373',
+        main: '#317773',
         dark: '#2156c1',
       },
       history: {

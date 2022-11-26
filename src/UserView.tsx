@@ -10,7 +10,7 @@ import { Outlet } from 'react-router-dom';
 import { userRoutes } from './routes';
 
 interface IUserViewProps {
-  toggleTheme: () => void;
+  toggleTheme: (index: number) => void;
   themeType: string;
 }
 

@@ -5,9 +5,10 @@ import { Theme } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import makeStyles from '@mui/styles/makeStyles';
 import { ReactElement } from 'react';
+import SplitButton from '@customizations/ButtonCustomization';
 
 interface INavBarProps {
-  toggleTheme: () => void;
+  toggleTheme: (index: number) => void;
   themeType: string;
   handleToggleSidebarMobile: () => void;
   handleToggleSidebar: () => void;
@@ -53,7 +54,11 @@ export const NavBar = (props: INavBarProps): ReactElement => {
         </IconButton>
       </div>
       <div>
-        <IconButton
+        <SplitButton
+            toggleTheme={props.toggleTheme}
+            themeType={props.themeType}
+          />
+        {/*<IconButton
           color="inherit"
           aria-label="Toggle Theme"
           onClick={() => {
@@ -61,7 +66,7 @@ export const NavBar = (props: INavBarProps): ReactElement => {
           }}
         >
           {props.themeType === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
-        </IconButton>
+        </IconButton>*/}
       </div>
     </div>
   );

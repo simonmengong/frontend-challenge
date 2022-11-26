@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { userRoutes } from './routes';
-import { darkTheme, lightTheme } from './theme';
+import { darkTheme, lightTheme, specialTheme } from './theme';
 import UserView from './UserView';
 
 const useStyles = makeStyles(() => ({
@@ -27,17 +27,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const useDarkMode = (): [ThemeOptions, () => void] => {
+const useDarkMode = (): [ThemeOptions, (index: number) => void] => {
+  const options = [lightTheme, darkTheme, specialTheme];
   const [theme, setTheme] = useState(lightTheme);
 
-  const toggleTheme = (): void => {
+  /*const toggleTheme = (): void => {
     setTheme(theme.palette?.mode === 'light' ? darkTheme : lightTheme);
+  };*/
+
+  const toggleTheme = (index: number) => {
+    setTheme(options[index]);
   };
 
   return [theme, toggleTheme];
 };
 
-const App = (props: { toggleTheme: () => void }): ReactElement => {
+const App = (props: { toggleTheme: (index: number) => void }): ReactElement => {
   const { toggleTheme } = props;
   const theme = useTheme();
   const classes = useStyles();
@@ -45,7 +50,7 @@ const App = (props: { toggleTheme: () => void }): ReactElement => {
   return (
     <div className={classes.app}>
       <Routes>
-        <Route path="/" element={<UserView toggleTheme={toggleTheme} themeType={`${theme.palette?.mode}`} />}>
+        <Route path="/" element={<UserView toggleTheme={toggleTheme} themeType={`${theme.name}`} />}>
           {userRoutes.map((route, index) => (
             <Route key={index} path={route.path} element={<route.component />} />
           ))}

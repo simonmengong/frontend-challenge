@@ -14,7 +14,12 @@ export default {
       statements: 80,
     },
   },
-  testEnvironment: 'jsdom',
+  
+  //testEnvironment: 'jsdom',
+  globalSetup: "jest-environment-puppeteer/setup",
+  globalTeardown: "jest-environment-puppeteer/teardown",
+  testEnvironment: "jest-environment-puppeteer",
+
   testPathIgnorePatterns: ['/node_modules/'],
   testRegex: '(/tests/.|(\\.|/)(test|spec))\\.tsx?$',
   transform: {

@@ -27,4 +27,13 @@ module.exports = {
     'unused-imports/no-unused-imports': 'error',
   },
   plugins: ['simple-import-sort', 'unused-imports'],
+  env: {
+    jest: true,
+    browser: true,
+  },
+  globals: {
+    page: true,
+    browser: true,
+    context: true,
+  },
 };

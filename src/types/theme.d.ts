@@ -3,6 +3,7 @@ import { Theme, ThemeOptions } from '@mui/material/styles';
 
 declare module '@mui/material/styles/createTheme' {
   interface Theme {
+    name: string,
     custom: {
       palette: {
         graphColorOne: {
@@ -31,6 +32,7 @@ declare module '@mui/material/styles/createTheme' {
   }
   // allow configuration using `createMuiTheme`
   interface ThemeOptions {
+    name?: string,
     custom?: {
       palette?: {
         graphColorOne?: {
